@@ -1,8 +1,8 @@
-public class Companion extends Player{
+public class Companion {
+    public String name;
+    public String location;
+    public String description;
 
-    public Companion(String name) {
-        super(name);
-
-    }
-    
+public Companion(String string, String string2, String string3) {
+}
 }
