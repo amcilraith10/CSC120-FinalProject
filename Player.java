@@ -37,7 +37,6 @@ static Player player = new Player("unnamed", "Human", 0, "center");
             try {
                 TimeUnit.MILLISECONDS.sleep(1000);
             } catch (InterruptedException e) {
-                // TODO catch block
                 e.printStackTrace();
             }
             description = "Welcome to North Dnaltrop Park. You are in a large park with a lot of trees, diverse plants, and native grasses. There are glass skybridges up in the trees that you can walk on, and several beautiful fountains. There are also many benches and people walking around.";
@@ -50,10 +49,9 @@ static Player player = new Player("unnamed", "Human", 0, "center");
             try {
                 TimeUnit.MILLISECONDS.sleep(1000);
             } catch (InterruptedException e) {
-                // TODO catch block
                 e.printStackTrace();
             }
-            description = "SOUTH DESCRIPTION";
+            description = "Welcome to Dnaltrop South Station. You are on a sidewalk in front of a bustling high-speed rail station that connects the city. There are many people walking around, and trains coming and going.";
         }
         else if(direction.equals("east")){
             player.location = "east";
@@ -61,7 +59,6 @@ static Player player = new Player("unnamed", "Human", 0, "center");
             try {
                 TimeUnit.MILLISECONDS.sleep(1000);
             } catch (InterruptedException e) {
-                // TODO catch block
                 e.printStackTrace();
             }
             description = "Welcome to the East Waterfront. You are on a sidewalk overlooking the city's beautiful river waterfront. There is a bridge ahead of you.";
@@ -72,7 +69,6 @@ static Player player = new Player("unnamed", "Human", 0, "center");
             try {
                 TimeUnit.MILLISECONDS.sleep(1000);
             } catch (InterruptedException e) {
-                // TODO catch block
                 e.printStackTrace();
             }
             description = "Welcome to the Dnaltrop University Campus. You are on a sidewalk in front of a large university. There are many students walking around, and a few professors. You see a large statue of the university's mascot, the Dnaltrop Dragon, in the center of the campus.";
