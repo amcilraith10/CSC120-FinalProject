@@ -21,7 +21,10 @@ public class Game<skillLevel> {
     public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         Player player = new Player("unnamed", "Human", 0, "center");
-    
+        //Companion companion = new Companion("Companion", "center", "A friendly companion.");
+        boolean reachedLevel50 = false;
+        boolean reachedLevel100 = false;
+
     //Game startup and setting the player's name
         System.out.println("Welcome to Dnaltrop. What is your name?");
         String name = scanner.nextLine();
@@ -53,6 +56,26 @@ public class Game<skillLevel> {
         String command = scanner.nextLine();
         String[] words =  command.split("\\s+", 2);
 
+        //Check player's skill level and print out a message if they have reached a new level
+        if (GameObject.skillLevel >= 50 && reachedLevel50 == false){
+                System.out.println("You have done some good exploring of Dnaltrop so far! Keep exploring to find your way home.");
+                reachedLevel50 = true; }
+                try {
+                    TimeUnit.MILLISECONDS.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace(); 
+        }
+        if (GameObject.skillLevel >= 100 && reachedLevel100 == false) {
+            System.out.println("It feels like you're almost home...");
+            System.out.println("Sometimes the best directions to go aren't the ones you expect. Try going in a new direction this time...");
+            reachedLevel100 = true;
+            try {
+                TimeUnit.MILLISECONDS.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } }
+    
+        //Checks if the command is empty or not
         if (command == null || command.length() == 0) {
             System.out.println("Command not recognized. Please use go or quit.");
             return; }

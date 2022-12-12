@@ -71,13 +71,25 @@ static Player player = new Player("unnamed", "Human", 0, "center");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            description = "Welcome to the Dnaltrop University Campus. You are on a sidewalk in front of a large university. There are many students walking around, and a few professors. You see a large statue of the university's mascot, the Dnaltrop Dragon, in the center of the campus.";
+            description = "Welcome to the Dnaltrop University Campus. You are on a sidewalk in front of a large university campus.";
         }
         else if (direction.equals("center")){
             player.location = "center";
-            description = "Welcome to the Center of Dnaltrop. You are currently in the center of a city far into the future. There are many tall buildings around you.";
+            description = "Welcome to the Center of Dnaltrop. You are currently in the center of a city far into the future. It is summertime, and from centuries of climate change, the weather is very warm.";
         }
-        else{
+        else if (direction.equals("down")|| (direction.equals("underground"))) {
+            if (GameObject.skillLevel > 100) {
+                player.location = "underground";
+                description = "Welcome to the Underground of Dnaltrop. You are currently in a dimly lit tunnel.";}
+            else {
+                System.out.println("You are not skilled enough to go underground yet. Keep exploring the city and come back later.");
+            }
+        }
+        else if (direction.equals("up")) {
+        System.out.println("This might be the future, but humans still can't fly.");
+        }
+
+        else {
             System.out.println("Direction not recognized. Please use north, south, east, or west to explore the map.");
         }
 
