@@ -2,10 +2,10 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Player {
-    String name;//name of the person
+    static String name;//name of the person
     String type;//type of player
     Integer skill;//player's level of skill (points earned)
-    String location;//location of the player on the map
+    static String location;//location of the player on the map
 
     /**
      * Constructor for object of class Player
@@ -71,14 +71,14 @@ static Player player = new Player("unnamed", "Human", 0, "center");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            description = "Welcome to the Dnaltrop University Campus. You are on a sidewalk in front of a large university campus.";
+            description = "Welcome to the Dnaltrop University Campus. You are on a sidewalk in front of a large university campus. It feels like you've been here before.";
         }
         else if (direction.equals("center")){
             player.location = "center";
             description = "Welcome to the Center of Dnaltrop. You are currently in the center of a city far into the future. It is summertime, and from centuries of climate change, the weather is very warm.";
         }
         else if (direction.equals("down")|| (direction.equals("underground"))) {
-            if (GameObject.skillLevel > 100) {
+            if (GameObject.skillLevel >= 100) {
                 player.location = "underground";
                 description = "Welcome to the Underground of Dnaltrop. You are currently in a dimly lit tunnel.";}
             else {
@@ -95,6 +95,4 @@ static Player player = new Player("unnamed", "Human", 0, "center");
 
         System.out.println(description);
     }
-
-
    }

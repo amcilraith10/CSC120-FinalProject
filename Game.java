@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Game<skillLevel> {
@@ -26,23 +25,30 @@ public class Game<skillLevel> {
         boolean reachedLevel100 = false;
 
     //Game startup and setting the player's name
+        System.out.println("Initializing game...");
+        //Used this tutorial for doing TimeUnit sleep method with try/catch: https://www.geeksforgeeks.org/timeunit-sleep-method-in-java-with-examples/
+        try {
+            TimeUnit.MILLISECONDS.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("Welcome to Dnaltrop. What is your name?");
         String name = scanner.nextLine();
         System.out.println("Welcome to Dnaltrop, " + name + ".");
-        //Used this tutorial for doing TimeUnit sleep method with try/catch: https://www.geeksforgeeks.org/timeunit-sleep-method-in-java-with-examples/
+        Player.name = name;
         try {
             TimeUnit.MILLISECONDS.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("You are currently in the center of a city far into the future. There are many tall buildings around you.");
+        System.out.println("You are currently in the center of an unfamiliar city far into the future. There are many tall buildings around you and a large monument, but you have no idea where you are or how to get home.");
         try {
             TimeUnit.MILLISECONDS.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("You can go north, south, east, or west.");
-        System.out.println("You can also quit playing at any time by typing quit.");
+        System.out.println("You can go north, south, east, or west. You can also explore the city by typing explore + the object you want to explore.");
+        System.out.println("You can also end the game at any time by typing quit.");
         try {
             TimeUnit.MILLISECONDS.sleep(1000);
         } catch (InterruptedException e) {
@@ -94,9 +100,13 @@ public class Game<skillLevel> {
             //scanner.close();    
      //Detects what command is being used and calls the appropriate method       
         if(verb.equals("go")){
-            //System.out.println("Which direction would you like to go?");
-            //System.out.println(noun);
             player.go(noun);}
+        
+        else if (verb.equals("check")){
+            System.out.println("Your skill level is " + GameObject.skillLevel + ".");
+            System.out.println("You are currently in the " + player.location + " of Dnaltrop.");
+            System.out.println("What would you like to do?");
+        }
         
         else if (verb.equals("help")){
             System.out.println("You can go north, south, east, or west. You can explore objects around you by typing explore + the object's name.");
@@ -109,7 +119,6 @@ public class Game<skillLevel> {
         } }
         
         else if(verb.equals("explore")){
-            System.out.println("explore command recognized");
             GameObject.explore(noun);
         }
 
